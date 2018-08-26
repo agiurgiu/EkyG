@@ -12,9 +12,3 @@ class Student:
 
 	def __str__(self):
 		return "Student " + self.name
-
-	def get_name_capitalize(self):
-		return self.name.capitalize()
-
-	def get_school_name(self):
-		return self.school_name

@@ -1,8 +1,19 @@
 from flask import Flask, render_template, redirect, url_for, request
 
-from student import Student
 
 students = []
+
+class Student:
+
+	school_name = "Springfield Elementary"
+
+	def __init__(self, name, student_id=332):
+		self.name = name
+		self.student_id = student_id
+		students.append(self)
+
+	def __str__(self):
+		return "Student " + self.name
 
 app = Flask(__name__)
 
@@ -19,7 +30,7 @@ def students_page():
 
 		return redirect(url_for("students_page"))
 
-	return render_template("index.html", students=students)
+	return render_template("../Weight_Tracker_WebAPP/index.html", students=students)
 
 
 if __name__ == "__main__":
