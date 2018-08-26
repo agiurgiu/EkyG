@@ -5,7 +5,8 @@ weight_table = []
 
 class Weight:
 
-    def __init__(self, weight, waist, thigh):
+    def __init__(self, date, weight, waist, thigh):
+        self.date = date
         self.weight = weight
         self.waist = waist
         self.thigh = thigh
@@ -15,6 +16,7 @@ class Weight:
         return "Weight " + self.weight
         return "Waist " + self.waist
         return "Thigh " + self.thigh
+        return "Date " + self.date
 
 
 app = Flask(__name__)
@@ -26,8 +28,9 @@ def weight_page():
         new_weight = request.form.get("weight", "")
         new_waist = request.form.get("waist", "")
         new_thigh = request.form.get("thigh", "")
+        new_date = request.form.get("date", "")
 
-        final_stats = Weight(weight=new_weight, waist=new_waist, thigh=new_thigh)
+        final_stats = Weight(date=new_date, weight=new_weight, waist=new_waist, thigh=new_thigh)
 
         return redirect(url_for("weight_page"))
 
